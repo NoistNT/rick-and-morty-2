@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import Card from '../Card/Card'
+import { CardsContainer } from '../StyledComponents/Cards'
 
 export default function Cards ({ characters }) {
   const onClose = () => window.alert('Emulamos que se cierra la card')
   return (
-    <div>
+    <CardsContainer>
       {characters.map(({ index, name, gender, species, image }) => {
         return (
           <Card
@@ -18,6 +19,6 @@ export default function Cards ({ characters }) {
           />
         )
       })}
-    </div>
+    </CardsContainer>
   )
 }
