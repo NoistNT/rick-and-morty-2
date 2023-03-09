@@ -1,12 +1,24 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useState } from 'react'
+import {
+  SearchBarContainer,
+  SearchBarInput,
+  SearchBarButton
+} from '../StyledComponents/SearchBar'
 
 export default function SearchBar ({ onSearch }) {
+  const [id, setId] = useState('')
+
+  const handleChange = (e) => {
+    setId(e.target.value)
+  }
+
   return (
-    <div>
-      <input type="search" />
-      <button onClick={(characterId) => onSearch(characterId)}>Add</button>
-      {/* <button onClick={onSearch}>Add</button> */}
-    </div>
+    <SearchBarContainer>
+      <SearchBarInput type="search" onChange={handleChange}/>
+      <SearchBarButton onClick={() => onSearch(id)}>
+        Add Character
+      </SearchBarButton>
+    </SearchBarContainer>
   )
 }
