@@ -7,10 +7,10 @@ export default function Cards ({ characters }) {
   const onClose = () => window.alert('Emulamos que se cierra la card')
   return (
     <CardsContainer>
-      {characters.map(({ index, name, gender, species, image }) => {
+      {characters.map(({ id, name, gender, species, image }) => {
         return (
           <Card
-            key={index}
+            key={id}
             name={name}
             gender={gender}
             species={species}
