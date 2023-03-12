@@ -3,14 +3,14 @@ import React from 'react'
 import Card from '../Card/Card'
 import { CardsContainer } from '../StyledComponents/Cards'
 
-export default function Cards ({ characters }) {
-  const onClose = () => window.alert('Emulamos que se cierra la card')
+export default function Cards ({ characters, onClose }) {
   return (
     <CardsContainer>
       {characters.map(({ id, name, gender, species, image }) => {
         return (
           <Card
             key={id}
+            id={id}
             name={name}
             gender={gender}
             species={species}

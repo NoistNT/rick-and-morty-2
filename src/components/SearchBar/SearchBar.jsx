@@ -13,9 +13,21 @@ export default function SearchBar ({ onSearch }) {
     setId(e.target.value)
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onSearch(id)
+      setId((e.target.value = ''))
+    }
+  }
+
   return (
     <SearchBarContainer>
-      <SearchBarInput type="search" onChange={handleChange}/>
+      <SearchBarInput
+        type="search"
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        value={id}
+      />
       <SearchBarButton onClick={() => onSearch(id)}>
         Add Character
       </SearchBarButton>
